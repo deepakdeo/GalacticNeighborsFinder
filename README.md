@@ -23,6 +23,13 @@ Ensure you have Python installed, along with the following packages: `numpy`, `p
    ```bash
    python GalacticNeighborsFinder.py <RQE_catalog_path> <SDSS_catalog_path> <output_file_path> [--max_neighbors MAX_NEIGHBORS] [--R_max R_MAX] [--Delta_v_max DELTA_V_MAX]
    ```
+- <RQE_catalog_path>: File path to the RQE galaxy catalog CSV file.
+- <SDSS_catalog_path>: File path to the SDSS galaxy catalog CSV file.
+- <output_file_path>: File path where the output CSV file with proximity scores will be saved.
+- --max_neighbors MAX_NEIGHBORS: Optional. Maximum number of neighbors to consider (default: 500).
+- --R_max R_MAX: Optional. Maximum projected physical separation (in kpc) between neighbors (default: 5000).
+- --Delta_v_max DELTA_V_MAX: Optional. Maximum velocity difference (in km/s) between neighbors (default: 3000).
+  
 ## Example
 Here's an example of loading a galaxy catalog and finding neighbors. In this specific example, I am attempting to identify all neighboring galaxies within specified criteria, by matching galaxies from the subset RQE catalog with those in the superset SDSS catalog:
 ```python
