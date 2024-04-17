@@ -17,13 +17,12 @@ git clone https://github.com/YOUR_GITHUB_USERNAME/GalacticNeighborsFinder.git
 Ensure you have Python installed, along with the following packages: `numpy`, `pandas`, `astropy`, and `scipy`.
 
 ## Usage
-1. Prepare your galaxy catalogs in CSV format.
-2. Modify the file paths in the script to point to your catalog files.
-3. Run the script:
+1. Prepare your galaxy catalogs in CSV format. Make sure it has RA (in deg), DEC (in deg) and redshift (z) columns.
+2. Ensure the CSV files are accessible from the directory where you intend to run the script.
+3. Run the script by specifying the paths to your input files and the desired output file directly from the command line. Additional optional parameters allow for further customization.
    ```bash
-   python paper2_NN_KDtree_fix_Rproj_vel_v2.py
+   python GalacticNeighborsFinder.py <RQE_catalog_path> <SDSS_catalog_path> <output_file_path> [--max_neighbors MAX_NEIGHBORS] [--R_max R_MAX] [--Delta_v_max DELTA_V_MAX]
    ```
-
 ## Example
 Here's an example of loading a galaxy catalog and finding neighbors. In this specific example, I am attempting to identify all neighboring galaxies within specified criteria, by matching galaxies from the subset RQE catalog with those in the superset SDSS catalog:
 ```python
