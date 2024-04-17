@@ -32,3 +32,9 @@ SDSScatalog = load_catalog('path_to_SDSS_catalog.csv')
 results_df = find_neighbors_and_compile_results(RQEcatalog, SDSScatalog)
 print(results_df.head(30))  # print first 30 rows of output file
 ```
+
+## Contributing
+Contributions are welcome! Please feel free to submit a pull request.
+
+## License
+This project is licensed under the MIT License - see the LICENSE file for details.
