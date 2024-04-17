@@ -1,7 +1,7 @@
 
 # GalacticNeighborsFinder
 
-This Python repository contains a script for identifying neighboring galaxies using data from astronomical catalogs. The script calculates proximity based on projected distance and velocity difference.
+This Python repository contains a script for identifying neighboring galaxies using data from astronomical catalogs. The script employs the k-d tree algorithm, a sophisticated data structure commonly used in machine learning for efficiently handling nearest-neighbor searches. By leveraging this method, the script determines proximity based on projected physical separation and velocity differences between galaxies. 
 
 ## Features
 - Load galaxy catalogs from CSV files.
