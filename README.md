@@ -6,6 +6,50 @@
 
 Efficiently identify neighboring galaxies in astronomical catalogs using **k-d tree spatial searches** with full **cosmological support**. This Python package finds galaxies that match based on projected physical separation and velocity differences.
 
+### How It Works
+
+```
+                           CATALOG 1                    CATALOG 2
+                        (RQE Galaxies)              (Reference Galaxies)
+                              │                             │
+                              ▼                             ▼
+                         ┌─────────┐                   ┌─────────┐
+                         │  Load   │                   │  Load   │
+                         │Catalogs │                   │Catalogs │
+                         └────┬────┘                   └────┬────┘
+                              │                             │
+                    ┌─────────┴─────────────────────────────┴─────────┐
+                    │                                                   │
+                    ▼                                                   ▼
+              ┌──────────────────┐                            ┌──────────────────┐
+              │Convert to SkyCoord│                            │Build K-D Tree    │
+              │(RA, DEC, Distance)│                            │(3D Cartesian)    │
+              └────────┬─────────┘                            └──────────┬───────┘
+                       │                                                  │
+                       └──────────────┬───────────────────────────────────┘
+                                      │
+                                      ▼
+                        ┌─────────────────────────────┐
+                        │  For Each Target Galaxy:    │
+                        │  1. K-D Tree Query          │
+                        │  2. Calculate Velocities    │
+                        │  3. Apply Selection Cuts    │
+                        │  4. Score Proximity         │
+                        │  5. Rank Neighbors          │
+                        └──────────┬──────────────────┘
+                                   │
+                                   ▼
+                        ┌──────────────────────┐
+                        │   RESULTS TABLE      │
+                        ├──────────────────────┤
+                        │ Neighbor Rank        │
+                        │ Proximity Score      │
+                        │ Angular Distance     │
+                        │ Velocity Difference  │
+                        │ Combined Catalogs    │
+                        └──────────────────────┘
+```
+
 ## Features
 
 - **Efficient Spatial Search**: K-d tree algorithm for fast nearest-neighbor queries
