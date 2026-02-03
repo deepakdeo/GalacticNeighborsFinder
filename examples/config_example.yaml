@@ -1,0 +1,44 @@
+# GalacticNeighborsFinder Configuration
+#
+# YAML configuration file for customizing neighbor search parameters,
+# catalog column mappings, and output settings.
+
+# Catalog-specific column mappings
+catalogs:
+  rqe:
+    name: "RQE Galaxy Sample"
+    column_mapping:
+      ra: "RAgal"           # Right ascension column
+      dec: "DECgal"         # Declination column
+      redshift: "zgal"      # Redshift column
+      id: "nyuID"           # Galaxy identifier
+
+  sdss:
+    name: "SDSS Galaxy Catalog"
+    column_mapping:
+      ra: "galaxy_ra_deg"   # Right ascension in degrees
+      dec: "galaxy_dec_deg" # Declination in degrees
+      redshift: "galaxy_z_CMB" # Redshift in CMB frame
+      id: "objID"           # SDSS object ID
+
+# Neighbor search parameters
+neighbor_search:
+  max_neighbors: 500           # Maximum neighbors to return per target
+  r_proj_max_kpc: 5000         # Maximum projected separation (kpc)
+  vel_diff_max_kms: 3000       # Maximum velocity difference (km/s)
+
+# Cosmological parameters
+cosmology:
+  H0: 70.0                     # Hubble constant (km/s/Mpc)
+  Om0: 0.3                     # Matter density parameter
+
+# Output settings
+output:
+  format: csv                  # Output format
+  include_all_columns: true    # Include all catalog columns in output
+  file_path: "neighbor_results.csv"
+
+# Logging configuration
+logging:
+  level: INFO                  # DEBUG, INFO, WARNING, ERROR
+  log_file: null               # Optional: path to log file
